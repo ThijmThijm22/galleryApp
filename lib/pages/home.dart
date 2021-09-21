@@ -8,9 +8,11 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
 
       appBar: AppBar(
         title: Text('Home Page'),
@@ -35,15 +37,26 @@ class _HomeState extends State<Home> {
                 padding: EdgeInsets.fromLTRB(40, 20, 40, 20),
               ),
             ),
+
+            SizedBox(height: 30),
+
+            ElevatedButton(
+              onPressed: () {
+                setState(() {
+                  Navigator.pushNamed(context, '/disco');
+                });
+              },
+              child: Text('Disco'),
+              style: ElevatedButton.styleFrom(
+                primary: Colors.green[600],
+                padding: EdgeInsets.fromLTRB(40, 20, 40, 20),
+              ),
+            ),
           ],
         ),
       ),
 
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: Icon(Icons.amp_stories_rounded),
-        backgroundColor: Colors.green[400],
-      ),
+      backgroundColor: Colors.grey[200],
     );
   }
 }
