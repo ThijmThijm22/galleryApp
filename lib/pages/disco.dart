@@ -34,6 +34,16 @@ class _DiscoState extends State<Disco> {
           }
   }
 
+  void timerFunc(int speed) {
+    Timer.periodic(Duration(milliseconds: speed), (timer) { 
+            if(party == false) {
+              timer.cancel();
+            } else {
+            changeColor();
+            }
+          });
+  }
+
   @override
   Widget build(BuildContext context) {
 
@@ -46,6 +56,12 @@ class _DiscoState extends State<Disco> {
 
       floatingActionButton: FloatingActionButton(
         onPressed: () {
+          if(party == false) {
+            party = true;
+            timerFunc(150);
+          } else {
+            party = false;
+          }
         },
         backgroundColor: bgColors[cuColor],
         child: Icon(Icons.light),
